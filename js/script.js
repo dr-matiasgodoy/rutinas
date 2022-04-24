@@ -68,11 +68,11 @@ class rutina {
       "Coloque el Numero (1, 2 o 3) para obtener una rutina \n 1: Fuerza  \n 2: Fuerza Resistencia \n 3: Metabolico"
     );
       if (expresionFuerza === "1") {
-      document.write(` ${lunesPechoFuerza.info} ${miercolesEspaldaFuerza.info} y ${viernesPiernasFuerza.info}`);
+      document.write(` </br> ${lunesPechoFuerza.info} </br> ${miercolesEspaldaFuerza.info} </br> ${viernesPiernasFuerza.info}`);
     } else if (expresionFuerza === "2") {
-      document.write(` ${LunesPechoFuerzaResistencia.info} ${miercolesEspaldaFuerzaResistencia.info} y ${viernesPiernasFuerzaResistencia.info}`);
+      document.write(` </br> ${LunesPechoFuerzaResistencia.info} </br> ${miercolesEspaldaFuerzaResistencia.info} </br> ${viernesPiernasFuerzaResistencia.info}`);
     } else if (expresionFuerza === "3") {
-      document.write(` ${LunesPechoMetabolico.info} ${miercolesEspaldaMetabolico.info} y ${viernesPiernasMetabolico.info}`);
+      document.write(` </br> ${LunesPechoMetabolico.info} </br> ${miercolesEspaldaMetabolico.info} </br> ${viernesPiernasMetabolico.info}`);
     } else {alert('Vuelva cuando tome alguna decision!')}
   
   }

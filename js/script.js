@@ -1,6 +1,21 @@
 
 let nombre = prompt("Por favor, Identifiquese con un Nombre").toUpperCase();
 
+function calculoPeso (){
+  consultaCalculo = prompt('Desea calcular el peso de algun ejercicio?').toLowerCase();
+  if (consultaCalculo === 'si') {
+  nombreEjercicio = prompt('Digame el nombre del ejercicio que quiere calcular de forma mensual');
+  resultadoPeso = parseInt(prompt('coloque el peso (numero entero) que usted utiliza para realizar en: ' + nombreEjercicio));
+  semana1 = resultadoPeso;
+  semana2 = Math.round(semana1 * 1.10);
+  semana3 = Math.round(semana2 * 1.05);
+  semana4 = Math.round(semana1 / 1.20);
+  document.write(`<br>Si usted actualmente esta semana realiza ${nombreEjercicio} con ${resultadoPeso}kg <br>procure un aumento progresivo de la carga en las dos siguientes semanas y un descanso en la cuarta semana<br> en la semana 2: debera hacer ${nombreEjercicio} con ${semana2}kg,<br> en la semana 3: debera hacer ${nombreEjercicio} con ${semana3}kg <br> en la semana 4: debera hacer ${nombreEjercicio} con ${semana4}kg`);
+}
+else {alert(`Hasta luego ${nombre}, Nunca te Rindas!`)};
+
+}
+
 function saludar() {
     alert(
       `Bienvenido a mi programa de rutinas ${nombre}, a continuacion debera colocar su peso y altura ejemplo (75 , 1.75)`
@@ -28,6 +43,7 @@ function conclusion (){
   }
 }
 conclusion()
+
 
 
 class rutina {
@@ -83,25 +99,27 @@ class rutina {
       "Coloque el Numero (1, 2 o 3) para obtener una rutina \n 1: Fuerza  \n 2: Fuerza Resistencia \n 3: Metabolico"
     );
       if ((expresionFuerza === "1") && (totalDiasEntrenamiento === "3")) {
-      rutinaSugerida.push(` </br> ${lunesPechoFuerza.info} </br> ${miercolesEspaldaFuerza.info} </br> ${viernesPiernasFuerza.info}`);
+      rutinaSugerida.push(` </br> ${lunesPechoFuerza.info} </br> ${miercolesEspaldaFuerza.info} </br> ${viernesPiernasFuerza.info}<br>`);
     } else if ((expresionFuerza === "2") && (totalDiasEntrenamiento === "3")){
-      rutinaSugerida.push(` </br> ${LunesPechoFuerzaResistencia.info} </br> ${miercolesEspaldaFuerzaResistencia.info} </br> ${viernesPiernasFuerzaResistencia.info}`);
+      rutinaSugerida.push(` </br> ${LunesPechoFuerzaResistencia.info} </br> ${miercolesEspaldaFuerzaResistencia.info} </br> ${viernesPiernasFuerzaResistencia.info}<br>`);
     } else if ((expresionFuerza === "3") && (totalDiasEntrenamiento === "3")) {
-      rutinaSugerida.push(` </br> ${LunesPechoMetabolico.info} </br> ${miercolesEspaldaMetabolico.info} </br> ${viernesPiernasMetabolico.info}`);
+      rutinaSugerida.push(` </br> ${LunesPechoMetabolico.info} </br> ${miercolesEspaldaMetabolico.info} </br> ${viernesPiernasMetabolico.info}<br>`);
     } else if ((expresionFuerza === "1") && (totalDiasEntrenamiento === "4")) {
-      rutinaSugerida.push(` </br> ${lunesPechoFuerza.info} </br> ${miercolesEspaldaFuerza.info} </br> ${viernesPiernasFuerza.info} </br> ${sabadoMixAerobico.info} `);
+      rutinaSugerida.push(` </br> ${lunesPechoFuerza.info} </br> ${miercolesEspaldaFuerza.info} </br> ${viernesPiernasFuerza.info} </br> ${sabadoMixAerobico.info}<br> `);
     } else if ((expresionFuerza === "2") && (totalDiasEntrenamiento === "4")){
-      rutinaSugerida.push(` </br> ${LunesPechoFuerzaResistencia.info} </br> ${miercolesEspaldaFuerzaResistencia.info} </br> ${viernesPiernasFuerzaResistencia.info} </br> ${sabadoMixAerobico.info}`);
+      rutinaSugerida.push(` </br> ${LunesPechoFuerzaResistencia.info} </br> ${miercolesEspaldaFuerzaResistencia.info} </br> ${viernesPiernasFuerzaResistencia.info} </br> ${sabadoMixAerobico.info} <br>`);
     } else if ((expresionFuerza === "3") && (totalDiasEntrenamiento === "4")) {
-      rutinaSugerida.push(` </br> ${LunesPechoMetabolico.info} </br> ${miercolesEspaldaMetabolico.info} </br> ${viernesPiernasMetabolico.info} </br> ${sabadoMixAerobico.info}`);
+      rutinaSugerida.push(` </br> ${LunesPechoMetabolico.info} </br> ${miercolesEspaldaMetabolico.info} </br> ${viernesPiernasMetabolico.info} </br> ${sabadoMixAerobico.info} <br>`);
     }
-    else {alert('Vuelva cuando tome alguna decision!')}
+    else {alert('Vuelva cuando tome alguna decision!')};
   
   }
  
   tipoRutina()
 
   for (rutina of rutinaSugerida){
-    document.write(`</br> ${rutinaSugerida}`)
+    document.write(`</br> ${rutinaSugerida}`);
   }
 
+ 
+  calculoPeso()

@@ -53,29 +53,55 @@ class rutina {
    } 
 }
 
-  let lunesPechoFuerza = new rutina('Pecho (Fuerza)','Lunes','Press Plano','Press Inclinado con Mancuernas', 'Press Declinado', 'Apertura Inclinada',' Apertura Plana', 'Cruces con Polea', 3, 4 , 5, 8, 10, 12)
+  let lunesPechoFuerza = new rutina('Pecho (Fuerza)','Lunes','Press Plano','Press Inclinado con Mancuernas', 'Press Declinado', 'Apertura Inclinada',' Apertura Plana', 'Cruces con Polea', 3, 4 , 4, 8, 10, 12)
   let miercolesEspaldaFuerza = new rutina('Espalda (Fuerza)','Miercoles','Remo Bajo','Dominadas', 'Tirones', 'Pull Over',' Remo 1 Brazo', 'Remo T', 3, 4 , 4, 8, 10, 12)
-  let viernesPiernasFuerza = new rutina('Piernas (Fuerza)','Viernes','Sentadilla','Estocadas 1 Pierna', 'Peso Muerto', 'Prensa 45',' Sillon Cuadriceps', 'Camilla Izquio', 3, 4 , 5, 8, 10, 12)
+  let viernesPiernasFuerza = new rutina('Piernas (Fuerza)','Viernes','Sentadilla','Estocadas 1 Pierna', 'Peso Muerto', 'Prensa 45',' Sillon Cuadriceps', 'Camilla Izquio', 3, 4 , 4, 8, 10, 12)
   let LunesPechoFuerzaResistencia = new rutina('Pecho (Fuerza Resistencia)','Lunes','Press Plano Inclinado','Press Inclinado con Mancuernas', 'Press Plano', 'Fondos',' Apertura Plana', 'PeckDeck', 4, 4, 4, 10, 12, 12)
   let miercolesEspaldaFuerzaResistencia  = new rutina('Espalda (Fuerza Resistencia)','Miercoles','Remo con Barra','Remo T', 'Dominadas', 'Tirones',' Pull Over Mancuerna', 'Tirones Con Soga', 4, 4, 4, 10, 12, 12)
   let viernesPiernasFuerzaResistencia  = new rutina('Piernas (Fuerza Resistencia)','Viernes','Peso Muerto','Peso Muerto 1 Pierna', 'Sentadilla', 'Sentadilla Sumo',' Sillones Cuadriceps', 'Camilla Izquio', 4, 4, 4, 10, 12, 12)
   let LunesPechoMetabolico  =new rutina('Pecho (Metabolico)','Lunes','Press Plano','Press Declinado con Mancuernas', 'Press Declinado', 'Apertura Declinada',' Peck Deck', 'Cruces con Polea', 4, 4, 4, 10, 12, 15)
   let miercolesEspaldaMetabolico = new rutina('Espalda (Metabolico)','Miercoles','Remo Caballo','Dominadas Maquina', 'Pull Over Maquina', 'Remo Bajo',' Dominadas reales', 'Remo 1 Brazo', 4, 4, 4, 10, 12, 15)
   let viernesPiernasMetabolico  = new rutina('Piernas (Metabolico)','Viernes','Prensa','Subidas al Cubo', 'Sentadilla sumo', 'Sillon Cuadricep',' Camilla Izquio', 'Pantorrillas', 4, 4, 4, 10, 12, 15)
+  let sabadoMixAerobico = new rutina('Mix Muscular (Dia Agregado)','Opcional','Abdominales','Pantorrillas', 'Flexiones de Brazo', 'Peso Muerto',' Planchas', 'Planchas laterales', 4, 4, 4, 10, 12, '15seg')
+
+  
+
+
+  totalDiasEntrenamiento = 0
+  function diasEntrenamiento (){
+    totalDiasEntrenamiento = prompt('cuantos dias vas a entrenar? elija 3 o 4');
+    if (totalDiasEntrenamiento === 3){
+      
+    }
+  }
+  diasEntrenamiento()
+
+  const rutinaSugerida =[]
 
   function tipoRutina() {
     expresionFuerza = prompt(
       "Coloque el Numero (1, 2 o 3) para obtener una rutina \n 1: Fuerza  \n 2: Fuerza Resistencia \n 3: Metabolico"
     );
-      if (expresionFuerza === "1") {
-      document.write(` </br> ${lunesPechoFuerza.info} </br> ${miercolesEspaldaFuerza.info} </br> ${viernesPiernasFuerza.info}`);
-    } else if (expresionFuerza === "2") {
-      document.write(` </br> ${LunesPechoFuerzaResistencia.info} </br> ${miercolesEspaldaFuerzaResistencia.info} </br> ${viernesPiernasFuerzaResistencia.info}`);
-    } else if (expresionFuerza === "3") {
-      document.write(` </br> ${LunesPechoMetabolico.info} </br> ${miercolesEspaldaMetabolico.info} </br> ${viernesPiernasMetabolico.info}`);
-    } else {alert('Vuelva cuando tome alguna decision!')}
+      if ((expresionFuerza === "1") && (totalDiasEntrenamiento === "3")) {
+      rutinaSugerida.push(` </br> ${lunesPechoFuerza.info} </br> ${miercolesEspaldaFuerza.info} </br> ${viernesPiernasFuerza.info}`);
+    } else if ((expresionFuerza === "2") && (totalDiasEntrenamiento === "3")){
+      rutinaSugerida.push(` </br> ${LunesPechoFuerzaResistencia.info} </br> ${miercolesEspaldaFuerzaResistencia.info} </br> ${viernesPiernasFuerzaResistencia.info}`);
+    } else if ((expresionFuerza === "3") && (totalDiasEntrenamiento === "3")) {
+      rutinaSugerida.push(` </br> ${LunesPechoMetabolico.info} </br> ${miercolesEspaldaMetabolico.info} </br> ${viernesPiernasMetabolico.info}`);
+    } else if ((expresionFuerza === "1") && (totalDiasEntrenamiento === "4")) {
+      rutinaSugerida.push(` </br> ${lunesPechoFuerza.info} </br> ${miercolesEspaldaFuerza.info} </br> ${viernesPiernasFuerza.info} </br> ${sabadoMixAerobico.info} `);
+    } else if ((expresionFuerza === "2") && (totalDiasEntrenamiento === "4")){
+      rutinaSugerida.push(` </br> ${LunesPechoFuerzaResistencia.info} </br> ${miercolesEspaldaFuerzaResistencia.info} </br> ${viernesPiernasFuerzaResistencia.info} </br> ${sabadoMixAerobico.info}`);
+    } else if ((expresionFuerza === "3") && (totalDiasEntrenamiento === "4")) {
+      rutinaSugerida.push(` </br> ${LunesPechoMetabolico.info} </br> ${miercolesEspaldaMetabolico.info} </br> ${viernesPiernasMetabolico.info} </br> ${sabadoMixAerobico.info}`);
+    }
+    else {alert('Vuelva cuando tome alguna decision!')}
   
   }
  
   tipoRutina()
+
+  for (rutina of rutinaSugerida){
+    document.write(`</br> ${rutinaSugerida}`)
+  }
 

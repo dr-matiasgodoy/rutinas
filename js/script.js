@@ -99,15 +99,29 @@ function mostrarEjercicios(){
 
 // Cuando aplique esta funcion usando de base el constructor agregare nuevos ejercicios al array de ejercicios
 function agregarEjercicio () {
-  consultaNuevoEjercicio = prompt('Desea agregar un nuevo ejercicio al listado total del programa? SI/NO').toLowerCase();
+  consultaNuevoEjercicio = prompt('Desea agregar un nuevo ejercicio a la base de datos? SI/NO').toLowerCase();
   if (consultaNuevoEjercicio === 'si') {
   let nuevoEjercicio = new Ejercicio({parte:prompt("Ingrese la parte muscular a trabajar (Espalda, Pectoral, Piernas, Biceps, Triceps u Hombro"), ejercicio:prompt("Ingrese el Ejercicio")});
   ejerciciosTotales.push(nuevoEjercicio);
-  }else{alert('Continue por favor!')}
+  }else{alert(`Hasta luego,${nombre}!`)}
 }
 
 function agregarRutinaImprovisada(rutina) {
    rutinaImprovisada.push(rutina);
+}
+
+
+
+
+// Esta funciones me pertime recorrer el Array que dejo de estar vacio al cargarle los ejercicios
+function mostrarRutinaImprovisada() {
+  let salida = "Ejercicios Seleccionados:\n\n";
+  for (let ejercicio of rutinaImprovisada) {
+      salida += "Parte a trabajar: " + ejercicio.parte + " - Ejercicio: " + ejercicio.ejercicio + "\n";
+  }
+      alert(salida);
+     
+  
 }
 
 // Funcion que le permite al Usuario seleccionar objetos de un array general y pushearlo a otro array vacio.
@@ -122,20 +136,9 @@ function seleccionarEjercicios(){
     agregarRutinaImprovisada(ejercicio);
     alert("Se agrego el Ejercicio a la Rutina!");
     salir = (prompt("Desea Seleccionar otro Ejercicio? (ESC para salir)")).toUpperCase();
+    mostrarRutinaImprovisada()
   }
   } else {alert(`Okei! ${nombre}!`)};
-}
-
-
-// Esta funciones me pertime recorrer el Array que dejo de estar vacio al cargarle los ejercicios
-function mostrarRutinaImprovisada() {
-  let salida = "Ejercicios Seleccionados:\n\n";
-  for (let ejercicio of rutinaImprovisada) {
-      salida += "Parte a trabajar: " + ejercicio.parte + " - Ejercicio: " + ejercicio.ejercicio + "\n";
-  }
-      alert(salida);
-      document.write("<br>" + salida);
-  
 }
  
 
@@ -154,7 +157,7 @@ function calculoPeso (){
   alert(`Si usted actualmente esta semana realiza ${nombreEjercicio} con ${resultadoPeso}kg \n procure un aumento progresivo de la carga en las dos siguientes semanas \n y un descanso en la cuarta semana \n en la semana 2: debera hacer ${nombreEjercicio} con ${semana2}kg,\n en la semana 3: debera hacer ${nombreEjercicio} con ${semana3}kg \n en la semana 4: debera hacer ${nombreEjercicio} con ${semana4}kg`);
   document.write(`<br>Si usted actualmente esta semana realiza ${nombreEjercicio} con ${resultadoPeso}kg <br>procure un aumento progresivo de la carga en las dos siguientes semanas y un descanso en la cuarta semana<br> en la semana 2: debera hacer ${nombreEjercicio} con ${semana2}kg,<br> en la semana 3: debera hacer ${nombreEjercicio} con ${semana3}kg <br> en la semana 4: debera hacer ${nombreEjercicio} con ${semana4}kg`);
 }
-else {alert(`Okei!, ${nombre}!`)};
+else {alert(`Sigamos!, ${nombre}!`)};
 
 }
 
@@ -166,9 +169,9 @@ function saludar() {
   }
   saludar()
 
-  // Funcion de calculo de IMC
+  // Funcion de calculo de IMC, con .toFixed aplico metodo de dos decimales
 function imcCalculo (peso, altura){
-    return peso / (altura * altura)
+    return (peso / (altura * altura)).toFixed(2)
 
 }
 
@@ -271,11 +274,9 @@ class rutina {
   //   document.write(`</br> ${rutinaSugerida}`);
   // }
 
-  agregarEjercicio()
   calculoPeso();
-  seleccionarEjercicios();
-  mostrarRutinaImprovisada();
-
+  seleccionarEjercicios();  
+  agregarEjercicio();
 
 
 

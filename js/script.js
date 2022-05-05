@@ -79,6 +79,13 @@ const ejerciciosTotales = [{parte:"Pectoral", ejercicio:"Press Plano"},
 // Array Vacio en el que se va a Pushear para la rutina improvisada
 const rutinaImprovisada = []; 
 
+const totalPectoral = ejerciciosTotales.filter((valor) => valor.parte.includes('Pectoral'));
+const totalEspalda = ejerciciosTotales.filter((valor) => valor.parte.includes('Espalda'));
+const totalHombros = ejerciciosTotales.filter((valor) => valor.parte.includes('Hombros'));
+const totalBiceps = ejerciciosTotales.filter((valor) => valor.parte.includes('Biceps'));
+const totalTriceps = ejerciciosTotales.filter((valor) => valor.parte.includes('Triceps'));
+const totalPiernas = ejerciciosTotales.filter((valor) => valor.parte.includes('Piernas'));
+const totalAbs = ejerciciosTotales.filter((valor) => valor.parte.includes('Abdominales'));
 // Se utiliza el constructor para usarlo como MOLDE, para ser utilizado cuando interese agregar ejercicios NEW
 class Ejercicio {
   constructor(ejercicio){
@@ -86,6 +93,7 @@ class Ejercicio {
     this.ejercicio = ejercicio.ejercicio;
   }
 }
+  
 // Esta funcion me permite mostrar la totalidad de ejercicios que conozco ya sea para armar rutinas o para medir el peso del ejercicio
 function mostrarEjercicios(){
   let salida = "";
@@ -269,20 +277,94 @@ class rutina {
       document.write(`</br> ${rutinaSugerida}`);
   }
   );
-    // Metodo alternativo para recorrer el Array
-  // for (rutina of rutinaSugerida){
-  //   document.write(`</br> ${rutinaSugerida}`);
-  // }
-
+ 
+  
   calculoPeso();
+  
   seleccionarEjercicios();  
   agregarEjercicio();
+  
+  // Pruebas del dom
+const pruebaDOM = document.querySelector('#pruebaDOM');
 
+let salude= prompt('Bienvenido al DOM, coloque algo que quiera visualizar')
 
+let bienvenida = document.createElement("h2");
+bienvenida.innerHTML = `<b>${salude}</b>`;
+pruebaDOM.append(bienvenida)
 
+function probamo (){
 
+  consultaFiltro = prompt('Desea filtrar una seleccion de ejercicios? (SI/NO)').toLowerCase();
+  if (consultaFiltro === 'si') {
+    let consulta = prompt('Escriba la parte que desea filtrar (Ej: Pectoral, Espalda, Biceps, Triceps, Hombros o Piernas').toLowerCase();
+    if (consulta === 'pectoral') {
+      for (let ejercicio of totalPectoral){
+      let contenedor = document.createElement("div");
+      contenedor.innerHTML = `<p>Parte:<b>${ejercicio.parte}</b></p>
+  <p>Ejercicio:<b>${ejercicio.ejercicio}</b></p>`
+       
+  pruebaDOM.append(contenedor)
+  ;
+  }
+    } else if (consulta ==="espalda"){
+      for (let ejercicio of totalEspalda){
+      let contenedor = document.createElement("div");
+      contenedor.innerHTML = `<p>Parte:<b>${ejercicio.parte}</b></p>
+  <p>Ejercicio:<b>${ejercicio.ejercicio}</b></p>`
+       
+  pruebaDOM.append(contenedor)
+  ;
+  }
+   } else if (consulta === "biceps"){
+     for (let ejercicio of totalBiceps){
+      let contenedor = document.createElement("div");
+      contenedor.innerHTML = `<p>Parte:<b>${ejercicio.parte}</b></p>
+  <p>Ejercicio:<b>${ejercicio.ejercicio}</b></p>`
+       
+  pruebaDOM.append(contenedor)
+  ;
+  }
+  } else if (consulta ==="triceps"){
+    for (let ejercicio of totalTriceps){
+      let contenedor = document.createElement("div");
+      contenedor.innerHTML = `<p>Parte:<b>${ejercicio.parte}</b></p>
+  <p>Ejercicio:<b>${ejercicio.ejercicio}</b></p>`
+       
+  pruebaDOM.append(contenedor)
+  ;
+  }
+  } else if (consulta === "piernas"){
+     for (let ejercicio of totalPiernas){
+      let contenedor = document.createElement("div");
+      contenedor.innerHTML = `<p>Parte:<b>${ejercicio.parte}</b></p>
+  <p>Ejercicio:<b>${ejercicio.ejercicio}</b></p>`
+       
+  pruebaDOM.append(contenedor)
+  ;
+  }
+    alert(salida) ;
+  } else if (consulta === "hombros"){
+    for (let ejercicio of totalHombros){
+      let contenedor = document.createElement("div");
+      contenedor.innerHTML = `<p>Parte:<b>${ejercicio.parte}</b></p>
+  <p>Ejercicio:<b>${ejercicio.ejercicio}</b></p>`
+       
+  pruebaDOM.append(contenedor)
+  ;
+  }
+    pruebaDOM.append(salida);
+  } else if (consulta === "abdominales"){
+    for (let ejercicio of totalAbs){
+      let contenedor = document.createElement("div");
+      contenedor.innerHTML = `<p>Parte:<b>${ejercicio.parte}</b></p>
+  <p>Ejercicio:<b>${ejercicio.ejercicio}</b></p>`
+       
+  pruebaDOM.append(contenedor)
+  ;
+  }
+  }}
 
+}
 
-
-
-
+probamo()

@@ -10,11 +10,13 @@ div {
     margin-bottom: 2rem;
 }
 body {
-    width: 100vh;
-    height: 100vh;
-    background-color: rgb(47, 7, 85);
-    color: white;
+   background-color: rgb(47, 7, 85);
+   color: white;
 
+}
+
+.titulo {
+  font-weight: bold;
 }
 
   .divAltura, .divPeso, .divCalc, .divParte, .divEjer, .divAgreg, .divForm, .divImprov {

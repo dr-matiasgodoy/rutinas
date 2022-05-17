@@ -1,76 +1,3 @@
-const ejerciciosTotales = [{parte:"Pectoral", ejercicio:"Press Plano"},
-                          {parte:"Pectoral", ejercicio:"Press Inclinado"},
-                          {parte:"Pectoral", ejercicio:"Press Declinado"},
-                          {parte:"Pectoral", ejercicio:"Press Plano con Mancuernas"},
-                          {parte:"Pectoral", ejercicio:"Press Inclinado con Mancuernas"},
-                          {parte:"Pectoral", ejercicio:"Press Declinado con Mancuernas"},
-                          {parte:"Pectoral", ejercicio:"Apertura Plana"},
-                          {parte:"Pectoral", ejercicio:"Apertura Inclinada"},
-                          {parte:"Pectoral", ejercicio:"Apertura Declinada"},
-                          {parte:"Pectoral", ejercicio:"Peck Deck"},
-                          {parte:"Pectoral", ejercicio:"Cruces con Polea Baja"},
-                          {parte:"Pectoral", ejercicio:"Cruces con Polea Alta"},
-                          {parte:"Pectoral", ejercicio:"Fondos en Paralelas"},
-                          {parte:"Pectoral", ejercicio:"Flexiones de brazo"},
-                          {parte:"Pectoral", ejercicio:"Mancuerna al pectoral"},
-                          {parte:"Espalda", ejercicio:"Remo bajo con polea"},
-                          {parte:"Espalda", ejercicio:"Remo con Barra"},
-                          {parte:"Espalda", ejercicio:"Remo 1 Brazo"},
-                          {parte:"Espalda", ejercicio:"Remo T"},
-                          {parte:"Espalda", ejercicio:"Remo Caballo"},
-                          {parte:"Espalda", ejercicio:"Dominadas"},
-                          {parte:"Espalda", ejercicio:"Tirones con polea"},
-                          {parte:"Espalda", ejercicio:"Tirones con Hummer"},
-                          {parte:"Espalda", ejercicio:"Pull Over con mancuerna"},
-                          {parte:"Espalda", ejercicio:"Pull Over con polea "},
-                          {parte:"Espalda", ejercicio:"Remo bajo con polea"},
-                          {parte:"Hombros", ejercicio:"Press Militar con Barra"},
-                          {parte:"Hombros", ejercicio:"Press Militar con Mancuerna"},
-                          {parte:"Hombros", ejercicio:"Press Militar en MultiPower"},
-                          {parte:"Hombros", ejercicio:"Press Arnold"},
-                          {parte:"Hombros", ejercicio:"Vuelos Laterales"},
-                          {parte:"Hombros", ejercicio:"Vuelos Frontales"},
-                          {parte:"Hombros", ejercicio:"Vuelos Frontales con Barra"},
-                          {parte:"Hombros", ejercicio:"Vuelos Frontales con Polea"},
-                          {parte:"Hombros", ejercicio:"Vuelos Posteriores"},
-                          {parte:"Hombros", ejercicio:"Posteriores con Soga"},
-                          {parte:"Biceps", ejercicio:"Curl con Barra"},
-                          {parte:"Biceps", ejercicio:"Curl con Mancuerna"},
-                          {parte:"Biceps", ejercicio:"Curl 45 grados"},
-                          {parte:"Biceps", ejercicio:"Curl Scott"},
-                          {parte:"Biceps", ejercicio:"Curl Polea"},                    
-                          {parte:"Biceps", ejercicio:"Curl Concentrado"},                    
-                          {parte:"Biceps", ejercicio:"Curl Alternado"},                    
-                          {parte:"Biceps", ejercicio:"Martillo"},
-                          {parte:"Biceps", ejercicio:"Braquial con barra"},
-                          {parte:"Triceps", ejercicio:"Empujes"},
-                          {parte:"Triceps", ejercicio:"Fondos entre bancos"},
-                          {parte:"Triceps", ejercicio:"Frances con barra"},
-                          {parte:"Triceps", ejercicio:"Frances 1 Brazo"},
-                          {parte:"Triceps", ejercicio:"Frances con Mancuernas"},
-                          {parte:"Triceps", ejercicio:"Frances con Soga"},
-                          {parte:"Triceps", ejercicio:"Extension con Polea"},
-                          {parte:"Piernas", ejercicio:"Sentadillas"},
-                          {parte:"Piernas", ejercicio:"Sentadillas Sumo"},
-                          {parte:"Piernas", ejercicio:"Sentadillas Sissy"},
-                          {parte:"Piernas", ejercicio:"Estocadas"},
-                          {parte:"Piernas", ejercicio:"Estocadas para atras"},
-                          {parte:"Piernas", ejercicio:"Prensa 45"},
-                          {parte:"Piernas", ejercicio:"Sillon de Cuadriceps"},
-                          {parte:"Piernas", ejercicio:"Camilla Izquiotibiales"},
-                          {parte:"Piernas", ejercicio:"Gemelos de Pie"},
-                          {parte:"Piernas", ejercicio:"Gemelos en Maquina"},
-                          {parte:"Piernas", ejercicio:"Prensa 45"},
-                          {parte:"Piernas", ejercicio:"Hack"},
-                          {parte:"Piernas", ejercicio:"Hack Invertido"},
-                          {parte:"Piernas", ejercicio:"Peso Muerto"},
-                          {parte:"Piernas", ejercicio:"Peso Muerto 1 pie"},
-                          {parte:"Piernas", ejercicio:"Puentes"},
-                          {parte:"Piernas", ejercicio:"Patada de Gluteos"},
-                          {parte:"Piernas", ejercicio:"Soleo Sentado"},
-                          {parte:"Abdominales", ejercicio:"Crunch con carga"},
-                          {parte:"Abdominales", ejercicio:"Crunch Oblicuo"},
-                          {parte:"Abdominales", ejercicio:"Hips"},]
 
 // Array Vacio en el que se va a Pushear para la rutina improvisada
 const rutinaImprovisada = []; 
@@ -146,9 +73,18 @@ function mostrarEjercicios(){
   for (let ejercicio of ejerciciosTotales){
     salida += i + " Parte a trabajar: " + ejercicio.parte + " - Ejercicio: " + ejercicio.ejercicio + "</br>";
     i++;
+
   }
   return salida;
 }
+
+
+
+
+
+
+
+
 // Paso 1
 let boton = document.getElementById("calcular");
 boton.onclick= () => {
@@ -186,22 +122,51 @@ let boton2 = document.getElementById("agregar");
 
 boton2.onclick =()=>{
 const agregado = document.querySelector('#agregado');
-const parte2 = document.querySelector('#parte').value;
+let filtrar2 = document.querySelector('#filtrado2');
+let resfil2 = (filtrar2.options[filtrar2.selectedIndex].value)
 const ejer2 = document.querySelector('#ejercicio').value;
-  if (parte2 !== '' && ejer2 !== '') {
-    let nuevoEjercicio = new Ejercicio({parte:parte2, ejercicio: ejer2})  
+
+  if (resfil2 === 'Pectoral' && ejer2 !== '') {
+    let nuevoEjercicio = new Ejercicio({parte:resfil2, ejercicio: ejer2})  
     ejerciciosTotales.push(nuevoEjercicio) 
-    agregado.innerHTML = `Ustes ha agregado el ejercicio ${ejer2} cuya parte muscular trabajada es ${parte2})`
-    } else {
+    agregado.innerHTML = `Ustes ha agregado el ejercicio ${ejer2} cuya parte muscular trabajada es ${resfil2})`
+    } else if (resfil2 === 'Espalda' && ejer2 !== '') {
+      let nuevoEjercicio = new Ejercicio({parte:resfil2, ejercicio: ejer2})  
+      ejerciciosTotales.push(nuevoEjercicio) 
+      agregado.innerHTML = `Ustes ha agregado el ejercicio ${ejer2} cuya parte muscular trabajada es ${resfil2})`
+      } else if (resfil2 === 'Biceps' && ejer2 !== '') {
+        let nuevoEjercicio = new Ejercicio({parte:resfil2, ejercicio: ejer2})  
+        ejerciciosTotales.push(nuevoEjercicio) 
+        agregado.innerHTML = `Ustes ha agregado el ejercicio ${ejer2} cuya parte muscular trabajada es ${resfil2})`
+        } else if (resfil2 === 'Triceps' && ejer2 !== '') {
+          let nuevoEjercicio = new Ejercicio({parte:resfil2, ejercicio: ejer2})  
+          ejerciciosTotales.push(nuevoEjercicio) 
+          agregado.innerHTML = `Ustes ha agregado el ejercicio ${ejer2} cuya parte muscular trabajada es ${resfil2})`
+          } else if (resfil2 === 'Hombros' && ejer2 !== '') {
+            let nuevoEjercicio = new Ejercicio({parte:resfil2, ejercicio: ejer2})  
+            ejerciciosTotales.push(nuevoEjercicio) 
+            agregado.innerHTML = `Ustes ha agregado el ejercicio ${ejer2} cuya parte muscular trabajada es ${resfil2})`
+            } else if (resfil2 === 'Piernas' && ejer2 !== '') {
+              let nuevoEjercicio = new Ejercicio({parte:resfil2, ejercicio: ejer2})  
+              ejerciciosTotales.push(nuevoEjercicio) 
+              agregado.innerHTML = `Ustes ha agregado el ejercicio ${ejer2} cuya parte muscular trabajada es ${resfil2})`
+              } else if (resfil2 === 'Abdominales' && ejer2 !== '') {
+                let nuevoEjercicio = new Ejercicio({parte:resfil2, ejercicio: ejer2})  
+                ejerciciosTotales.push(nuevoEjercicio) 
+                agregado.innerHTML = `Ustes ha agregado el ejercicio ${ejer2} cuya parte muscular trabajada es ${resfil2})`
+                } else {
     agregado.innerHTML = 'Complete los campos'
   }
 }
 
 let btntodos = document.getElementById('todos')
 btntodos.onclick =() => {
-  agregado.innerHTML = `<br>${mostrarEjercicios()}`;
+  agregado.innerHTML = `${mostrarEjercicios()}`;
 }
-
+let limpiar = document.getElementById("limpiar");
+  limpiar.onclick =() => {
+  agregado.innerHTML = "";
+  }
 
 
 // Paso 3
@@ -268,6 +233,8 @@ btntodos.onclick =() => {
     resultado2.append(contenedor);
     }}}
 
+
+    
 let borrar = document.getElementById("borrar");
   borrar.onclick =() => {
     const resultado2 = document.querySelector('#resultado2');
@@ -369,9 +336,44 @@ let borrar5 = document.getElementById("borrar5");
   }
 
 
+  const contenedor = document.getElementById("container");
 
 
 
+  function cargarEjercicios(){
+    contenedor.innerHTML = "";
+    let ejerciciosT = cargarEjerciciosLS();
+    ejerciciosT.forEach((ejercicio, indice) => {
+      let card = document.createElement("div");
+      card.classList.add("card", "col-sm-12", "col-md-3","col-lg-3");
+      let html = `
+        <img src="images/${ejercicio.imagen}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${ejercicio.ejercicio}</h5>
+          <p class="card-text">${ejercicio.parte}</p>
+          <a href="#cart" class="btn btn-primary" onClick="agregarLista(${indice})">Seleccionar</a>
+        </div>
+          `;
+      card.innerHTML = html;
+      contenedor.appendChild(card);
+    });
+  }
+
+
+
+
+
+
+
+
+
+  
+guardarEjerciciosTotalesLS(ejerciciosTotales)
+cargarEjercicios();
+actualizarBotonLista();
+
+
+document.getElementById("eliminar_lista").addEventListener('click', eliminarLista);
 
 
 

@@ -10,9 +10,15 @@ div {
     margin-bottom: 2rem;
 }
 body {
-   background-color: rgb(47, 7, 85);
-   color: white;
+   background-color: rgb(145, 93, 194);
+   color: rgb(19, 17, 17);
 
+}
+
+.producto-carrito {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .titulo {
@@ -25,7 +31,14 @@ body {
     flex-direction: column;
     gap: 10px;
   }
-  
+  .vemos {
+    width: 5%;
+  }
+  .bebe {
+    width: 85%;
+   
+
+  }
   input, button {
     font-size: 20px;
     outline: none;
@@ -39,13 +52,6 @@ body {
     color: white;
   }
 
-
-  
-  @media (max-width: 500px) {
-    body, input, button {
-      font-size: 15px;
-    }
-  }
-
-
-  
+.a1 {
+  color: black;
+}

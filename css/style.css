@@ -36,7 +36,7 @@ body {
   }
   .bebe {
     width: 85%;
-   
+
 
   }
   input, button {
@@ -54,4 +54,9 @@ body {
 
 .a1 {
   color: black;
+}
+
+.btn {
+  
+  margin: .3rem;
 }

@@ -10,7 +10,37 @@ const totalBiceps = ejerciciosTotales.filter((valor) => valor.parte.includes('Bi
 const totalTriceps = ejerciciosTotales.filter((valor) => valor.parte.includes('Triceps'));
 const totalPiernas = ejerciciosTotales.filter((valor) => valor.parte.includes('Piernas'));
 const totalAbs = ejerciciosTotales.filter((valor) => valor.parte.includes('Abdominales'));
+
+
+// Librerias
+function alertConfirm() {
+  Swal.fire({
+    icon: 'success',
+    title: 'Se ha eliminado satisfactoriamente',
+    showConfirmButton: false,
+    })
+}
+
+function completarCampos(){
+  Swal.fire({
+    icon: "error",
+    title: "Error!",
+    text:"Complete los Campos",
+    confirmButtonText: "Aceptar"
+  })
+}
+
+
+
+let botoncito = document.getElementById("button-text");
+
+botoncito.onclick =()=>{
+  alertConfirm()
+}
+
+
 // // Se utiliza el constructor para usarlo como MOLDE, para ser utilizado cuando interese agregar ejercicios NEW
+
 class Ejercicio {
   constructor(ejercicio){
     this.parte = ejercicio.parte;
@@ -112,7 +142,8 @@ const peso = document.querySelector('#peso');
     
     resultado.innerHTML = `IMC: ${imc} (${classification})`
   } else {
-    resultado.innerHTML = 'Complete los campos'
+    resultado.innerHTML = 'Complete los campos';
+    completarCampos()
   }
 }
 
@@ -155,7 +186,8 @@ const ejer2 = document.querySelector('#ejercicio').value;
                 ejerciciosTotales.push(nuevoEjercicio) 
                 agregado.innerHTML = `Ustes ha agregado el ejercicio ${ejer2} cuya parte muscular trabajada es ${resfil2})`
                 } else {
-    agregado.innerHTML = 'Complete los campos'
+    agregado.innerHTML = 'Complete los campos';
+    completarCampos()
   }
 }
 
@@ -239,6 +271,7 @@ let borrar = document.getElementById("borrar");
   borrar.onclick =() => {
     const resultado2 = document.querySelector('#resultado2');
       resultado2.innerHTML = "";
+      alertConfirm();
   }
 
 
@@ -255,13 +288,15 @@ const ejer3 = document.querySelector('#ejercicio3').value;
     rutinaImprovisada.push(nuevoEjercicio) 
     resultado3.innerHTML = `${mostrarRutinaImprovisada()}`;
     } else {
-    resultado3.innerHTML = 'Complete los campos'
+    resultado3.innerHTML = 'Complete los campos';
+    completarCampos()
   }
 }
 let borrar2 = document.getElementById("borrar2");
   borrar2.onclick =() => {
     const resultado3 = document.querySelector('#resultado3');
       resultado3.innerHTML = "";
+      alertConfirm();
   }
 
 
@@ -307,6 +342,7 @@ let borrar2 = document.getElementById("borrar2");
   borrar4.onclick =() => {
     const resultado4 = document.querySelector('#resultado4');
       resultado4.innerHTML = "";
+      alertConfirm();
   }
 
 // Paso 6
@@ -333,6 +369,7 @@ let borrar5 = document.getElementById("borrar5");
   borrar5.onclick =() => {
     const resultado5 = document.querySelector('#resultado5');
       resultado5.innerHTML = "";
+      alertConfirm();
   }
 
 

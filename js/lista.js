@@ -22,12 +22,17 @@ function cargarEjerciciosLista(){
     localStorage.removeItem('lista');
     actualizarBotonLista();
     cargarEjerciciosSelec();
+    Swal.fire({
+      icon: 'success',
+      title: 'Se ha eliminado satisfactoriamente',
+      showConfirmButton: false,
+      })
   }
 
 
   function actualizarBotonLista() {
     let ejercicios_lista = cargarEjerciciosLista();
-    let contenido = `<button type="button" class="btn btn-warning position-relative"><img src="images/basket.svg" alt="Carrito" width="32"><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">${ejercicios_lista.length}</span></button>`;
+    let contenido = `<button type="button" class="btn btn-secondary position-relative"><img src="images/pesita3.svg" alt="Carrito" width="32"><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">${ejercicios_lista.length}</span></button>`;
     document.getElementById("boton_carrito").innerHTML = contenido;
 }
 
@@ -49,7 +54,6 @@ const contenedor2 = document.getElementById("ejercicios_seleccionados");
 
 
 function cargarEjerciciosSelec(){
-  contenedor2.innerHTML = ``;
   let ejerciciosR = cargarEjerciciosLista();
   ejerciciosR.forEach((ejercicio, indice) => {
     let parrafon = document.createElement("div");
@@ -67,6 +71,7 @@ function cargarEjerciciosSelec(){
     contenedor2.appendChild(parrafon);
   });
 }
+
 
 
 

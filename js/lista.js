@@ -45,7 +45,7 @@ function eliminarEjercicio(id) {
   
 
   actualizarBotonLista();
-  cargarEjerciciosSelec()
+  
   
   
 }
@@ -71,6 +71,8 @@ function cargarEjerciciosSelec(){
     contenedor2.appendChild(parrafon);
   });
 }
+
+
 
 
 

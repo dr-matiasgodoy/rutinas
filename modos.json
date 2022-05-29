@@ -1,0 +1,46 @@
+[
+    {
+      "id": 1,
+      "titulo": "Series Ascendentes",
+      "descripcion": "Aumentar la carga de kilos serie tres serie con una disminución del número de repeticiones",
+      "ejemplo": "Serie 1: 12 repeticiones 67% 1RM, Serie 2: 10 repeticiones 75% 1RM, Serie 3: 8 repeticiones 80% 1RM y Serie 4: 6 repeticiones 85% 1RM"
+    },
+  
+    {
+      "id": 2,
+      "titulo": "Series Descendentes",
+      "descripcion": "Disminución de la carga de kilos con un incremento, también escalonado, del número de repeticiones",
+      "ejemplo": "Serie 1: 6 repeticiones 85% 1RM, Serie 2: 8 repeticiones 80% 1RM, Serie 3: 10 repeticiones 75% 1RM y Serie 4: 12 repeticiones 67% 1RM"
+    },
+    {
+      "id": 3,
+      "titulo": "Pre-Fatiga",
+      "descripcion": "Se realiza un ejercicio de aislamiento primero y luego el compuesto",
+      "ejemplo": "Aperturas 12 rep + press de banca 10 rep"
+    },
+    {
+      "id": 4,
+      "titulo": "Post-fatiga",
+      "descripcion": "En esta modalidad de serie, a diferencia de la anterior, el ejercicio que se realiza primero es el básico y posteriormente (sin descanso entre ellos) el de aislamiento.",
+      "ejemplo": "Press de banca 10 rep + aperturas con mancuernas 12 rep"
+    },
+    {
+      "id": 5,
+      "titulo": "Biseries y Triseries",
+      "descripcion": "Son ejercicios distintos para un mismo grupo muscular realizados de forma encadenada, sin descanso ente ellos",
+      "ejemplo": " Curl con barra + curl alterno por ejemplo o curl con barra + curl alterno+ concentrado"
+    },
+    {
+      "id": 6,
+      "titulo": "Serie Gigante",
+      "descripcion": "Combinación de 4 ó 5 ejercicios distintos para un mismo grupo muscular con poco o ningún descanso entre ellos",
+      "ejemplo": "Rackpull + remo en punta + dominadas + remo con apoyo en el pecho + facepull"
+    },
+    {
+      "id": 7,
+      "titulo": "Rest Pause",
+      "descripcion": "Técnica con múltiples variantes",
+      "ejemplo": "Una carga del 75% de 1RM. Realizamos 10 repeticiones de forma común. Al terminarlas hacemos una pausa de 10s, seguidamente sacamos las repeticiones que nos sean posibles sin fallar, otros 10s de descanso, otras “X” repeticiones, etc. Así las veces establecidas, que pueden ser 3-4 veces "
+    }
+  ]
+  

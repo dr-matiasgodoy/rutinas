@@ -403,7 +403,6 @@ let borrar5 = document.getElementById("borrar5");
 
 
 
-
   
 guardarEjerciciosTotalesLS(ejerciciosTotales)
 cargarEjercicios();

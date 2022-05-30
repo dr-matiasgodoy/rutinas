@@ -1,7 +1,7 @@
 
 // Array Vacio en el que se va a Pushear para la rutina improvisada
 const rutinaImprovisada = []; 
-const rutinaSugerida = [];
+let rutinaSugerida = [];
 
 const totalPectoral = ejerciciosTotales.filter((valor) => valor.parte.includes('Pectoral'));
 const totalEspalda = ejerciciosTotales.filter((valor) => valor.parte.includes('Espalda'));
@@ -349,6 +349,7 @@ let borrar2 = document.getElementById("borrar2");
 
 let boton6 = document.getElementById("seleccionar3");
   boton6.onclick =() => {
+    rutinaSugerida = [];
     let sugerir =document.querySelector('#sugerida')
     let sugerida = (sugerir.options[sugerir.selectedIndex].value)
     const resultado5= document.querySelector('#resultado5')    
@@ -404,8 +405,8 @@ let borrar5 = document.getElementById("borrar5");
 
 
   
-guardarEjerciciosTotalesLS(ejerciciosTotales)
-cargarEjercicios();
+guardarEjerciciosTotalesLS(ejerciciosTotales);
+document.getElementById("aplicando").addEventListener('click', cargarEjercicios);
 actualizarBotonLista();
 
 

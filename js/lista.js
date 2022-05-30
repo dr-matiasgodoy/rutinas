@@ -42,10 +42,8 @@ function eliminarEjercicio(id) {
   let ejercicios_lista = cargarEjerciciosLista();
   let ejercicios_lista_actualizado = ejercicios_lista.filter(x => x.id != id);
   localStorage.setItem("lista", JSON.stringify(ejercicios_lista_actualizado));
-  
-
   actualizarBotonLista();
-  
+  cargarEjerciciosSelec()
   
   
 }
@@ -54,22 +52,37 @@ const contenedor2 = document.getElementById("ejercicios_seleccionados");
 
 
 function cargarEjerciciosSelec(){
-  let ejerciciosR = cargarEjerciciosLista();
-  ejerciciosR.forEach((ejercicio, indice) => {
-    let parrafon = document.createElement("div");
-    parrafon.classList.add("container")
-    let html = `<tr>
-    <td><img src='images/${ejercicio.imagen}' width='30' alt='${ejercicio.ejercicios}' title='${ejercicio.ejercicios}'></td>
-    <td class='text-start'> Ejercicio: <b>${ejercicio.ejercicio}</b> Musculatura: <b>${ejercicio.parte}</b></td>
-    <br><td class='text-center'> <label for="Series">Series:</label>
-    <input class="vemos" type="number" name="" id="series${ejercicio.id}"></td>
-    <td class='text-center'> <label for="Repeticiones">Repeticiones:</label>
-    <input class="vemos" type="number" name="" id="repeticiones${ejercicio.id}"></td>
-    <td class='text-end'><button class='btn btn-danger' onclick='eliminarEjercicio(${ejercicio.id});'><img src='images/trash3.svg' alt='Eliminar' width='24'></button></td>
-    </tr>`;
-    parrafon.innerHTML = html;
-    contenedor2.appendChild(parrafon);
-  });
+  if (document.getElementById("ejercicios_seleccionados")) {
+    let ejerciciosR = cargarEjerciciosLista();
+    if (ejerciciosR.length == 0) {
+      contenedor2.innerHTML = "";
+      let parrafon = document.createElement("div");
+      parrafon.classList.add("container")
+      let html = "<h3>No has Seleccionado Ningun Ejercicio</h3>";
+      parrafon.innerHTML = html;
+        contenedor2.appendChild(parrafon);
+    } else {
+        contenedor2.innerHTML = ""
+        ejerciciosR.forEach((ejercicio, indice) => {
+        let parrafon = document.createElement("div");
+        parrafon.classList.add("container")
+        let html = `<tr>
+        <td><img src='images/${ejercicio.imagen}' width='30' alt='${ejercicio.ejercicios}' title='${ejercicio.ejercicios}'></td>
+        <td class='text-start'> Ejercicio: <b>${ejercicio.ejercicio}</b> Musculatura: <b>${ejercicio.parte}</b></td>
+        <br><td class='text-center'> <label for="Series">Series:</label>
+        <input class="vemos" type="number" name="" id="series${ejercicio.id}"></td>
+        <td class='text-center'> <label for="Repeticiones">Repeticiones:</label>
+        <input class="vemos" type="number" name="" id="repeticiones${ejercicio.id}"></td>
+        <td class='text-end'><button class='btn btn-danger' onclick='eliminarEjercicio(${ejercicio.id});'><img src='images/trash3.svg' alt='Eliminar' width='24'></button></td>
+        </tr>`;
+        parrafon.innerHTML = html;
+        contenedor2.appendChild(parrafon);
+      });
+    }
+    
+  }
+  
+
 }
 
 

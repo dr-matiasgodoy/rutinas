@@ -38,6 +38,12 @@ let boton1 = document.getElementById("cartButtons");
 
 document.getElementById("eliminar_lista1").addEventListener('click', eliminarLista);
 
+let boton99 = document.getElementById("limpiar");
+boton99.onclick= () => {
+  resultado2 = document.querySelector('#ejercicios_seleccionados2');
+  resultado2.innerHTML="";
+}
+
 let boton2 = document.getElementById("cartButtons2");
 boton2.onclick= () => {
 const modos = document.getElementById("modos");

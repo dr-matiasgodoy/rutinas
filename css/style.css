@@ -10,7 +10,7 @@ div {
     margin-bottom: 2rem;
 }
 body {
-   background-color: rgb(127, 74, 177);
+   background-color: #800080;
    color: rgb(19, 17, 17);
 
 }
@@ -48,8 +48,7 @@ body {
   
   button {
     cursor: pointer;
-    background-color: #6f00ff;
-    color: white;
+    color: black;
   }
 
 .a1 {

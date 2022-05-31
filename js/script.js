@@ -45,6 +45,8 @@ class Ejercicio {
   constructor(ejercicio){
     this.parte = ejercicio.parte;
     this.ejercicio = ejercicio.ejercicio;
+    this.series = ejercicio.series;
+    this.repeticiones = ejercicio.repeticiones
   }
 }
   
@@ -88,7 +90,7 @@ class Rutina {
 function mostrarRutinaImprovisada() {
  let salida = "Ejercicios Seleccionados:</br>";
  for (let ejercicio of rutinaImprovisada) {
-     salida += "Parte a trabajar: " + ejercicio.parte + " - Ejercicio: " + ejercicio.ejercicio + "</br>";
+     salida += "Parte a trabajar: " + ejercicio.parte + " - Ejercicio: " + ejercicio.ejercicio +  " - Series: " + ejercicio.series +  " - Repeticiones: " + ejercicio.repeticiones + "</br>";
  }
      return(salida);
     
@@ -206,7 +208,7 @@ let limpiar = document.getElementById("limpiar");
   boton3.onclick =() => {
     let filtar1 =document.querySelector('#filtrado')
     let resfil = (filtar1.options[filtar1.selectedIndex].value)
-        
+    resultado2.innerHTML = "";    
     if (resfil === 'Pectoral') {
       for (let ejercicio of totalPectoral){
       let contenedor = document.createElement("div");
@@ -283,8 +285,11 @@ boton4.onclick =()=>{
 const resultado3 = document.querySelector('#resultado3');
 const parte3 = document.querySelector('#parte3').value;
 const ejer3 = document.querySelector('#ejercicio3').value;
-  if (parte3 !== '' && ejer3 !== '') {
-    let nuevoEjercicio = new Ejercicio({parte:parte3, ejercicio: ejer3})  
+const ser = document.getElementById("seriales").value;
+const rep = document.getElementById("repesito").value;
+console.log (mostrarRutinaImprovisada())
+  if ((parte3 !== '') && (ejer3 !== '') && (ser !== '') && (rep !== '')) {
+    let nuevoEjercicio = new Ejercicio({parte:parte3, ejercicio: ejer3, series:ser, repeticiones:rep})  
     rutinaImprovisada.push(nuevoEjercicio) 
     resultado3.innerHTML = `${mostrarRutinaImprovisada()}`;
     } else {
@@ -298,54 +303,8 @@ let borrar2 = document.getElementById("borrar2");
       resultado3.innerHTML = "";
       alertConfirm();
   }
+ 
 
-
-  // Paso 5
-
-  let boton5 = document.getElementById('seleccionar2');
-  boton5.onclick =() => {
-    let progresivo =document.querySelector('#progresivo')
-    let progre = (progresivo.options[progresivo.selectedIndex].value)
-    if (progre === 'Leve') {
-      let kilos = document.getElementById('kilos').value;
-      console.log(kilos)
-      const resultado4 = document.querySelector('#resultado4');
-      let semanaA = kilos;
-      let semanaB = Math.round(semanaA * 1.05);
-      let semanaC = Math.round(semanaB * 1.05);
-      let semanaD = Math.round(semanaB / 1.20);
-      resultado4.innerHTML = `<br>Semana 1:${semanaA}kg<br>Semana 2:${semanaB}kg <br> Semana 3:${semanaC}kg <br> Semana 4 (Descanso): ${semanaD} `
-    }else if (progre === 'Moderado') {
-      let kilos = document.getElementById('kilos').value;
-      console.log(kilos)
-      const resultado4 = document.querySelector('#resultado4');
-      let semanaA = kilos;
-      let semanaB = Math.round(semanaA * 1.10);
-      let semanaC = Math.round(semanaB * 1.10);
-      let semanaD = Math.round(semanaB / 1.15);
-      resultado4.innerHTML = `<br>Semana 1:${semanaA}kg<br>Semana 2:${semanaB}kg <br> Semana 3:${semanaC}kg <br> Semana 4 (Descanso): ${semanaD} `
-    } else if (progre === 'Fuerte') {
-      let kilos = document.getElementById('kilos').value;
-      console.log(kilos)
-      const resultado4 = document.querySelector('#resultado4');
-      let semanaA = kilos;
-      let semanaB = Math.round(semanaA * 1.15);
-      let semanaC = Math.round(semanaB * 1.15);
-      let semanaD = Math.round(semanaB / 1.15);
-      resultado4.innerHTML = `<br>Semana 1:${semanaA}kg<br>Semana 2:${semanaB}kg <br> Semana 3:${semanaC}kg <br> Semana 4 (Descanso): ${semanaD} `
-    }
-
-
-  }
-
-  let borrar4 = document.getElementById("borrar4");
-  borrar4.onclick =() => {
-    const resultado4 = document.querySelector('#resultado4');
-      resultado4.innerHTML = "";
-      alertConfirm();
-  }
-
-// Paso 6
 
 let boton6 = document.getElementById("seleccionar3");
   boton6.onclick =() => {
@@ -396,11 +355,6 @@ let borrar5 = document.getElementById("borrar5");
       contenedor.appendChild(card);
     });
   }
-
-
-
-
-
 
 
 

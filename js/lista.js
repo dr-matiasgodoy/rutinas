@@ -1,3 +1,6 @@
+
+
+
 function buscarEjercicio(id){
     let ejercicios = cargarEjerciciosLS();
     return ejercicios.find(x => x.id == id);
@@ -32,7 +35,7 @@ function cargarEjerciciosLista(){
 
   function actualizarBotonLista() {
     let ejercicios_lista = cargarEjerciciosLista();
-    let contenido = `<button type="button" class="btn btn-secondary position-relative"><img src="images/pesita3.svg" alt="Carrito" width="32"><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">${ejercicios_lista.length}</span></button>`;
+    let contenido = `<button type="button" class="btn btn-success position-relative"><img src="images/pesita3.svg" alt="Carrito" width="32"><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">${ejercicios_lista.length}</span></button>`;
     document.getElementById("boton_carrito").innerHTML = contenido;
 }
 

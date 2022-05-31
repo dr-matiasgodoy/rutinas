@@ -41,8 +41,18 @@ document.getElementById("eliminar_lista1").addEventListener('click', eliminarLis
 let boton99 = document.getElementById("limpiar");
 boton99.onclick= () => {
   resultado2 = document.querySelector('#ejercicios_seleccionados2');
-  resultado2.innerHTML="";
+  if(resultado2.innerHTML=="") {
+    Swal.fire({
+      icon: "error",
+      title: "Error!",
+      text:"No hay rutina para borrar",
+      confirmButtonText: "Aceptar"
+    })
+  } else{
+    resultado2.innerHTML="";
+  }
 }
+
 
 let boton2 = document.getElementById("cartButtons2");
 boton2.onclick= () => {
@@ -68,4 +78,49 @@ fetch('./modos.json')
   });
 })
 }
+let boton5 = document.getElementById('seleccionar2');
+  boton5.onclick =() => {
+    let progresivo =document.querySelector('#progresivo')
+    let progre = (progresivo.options[progresivo.selectedIndex].value)
+    if (progre === 'Leve') {
+      let kilos = document.getElementById('kilos').value;
+      console.log(kilos)
+      const resultado4 = document.querySelector('#resultado4');
+      let semanaA = kilos;
+      let semanaB = Math.round(semanaA * 1.05);
+      let semanaC = Math.round(semanaB * 1.05);
+      let semanaD = Math.round(semanaB / 1.20);
+      resultado4.innerHTML = `<br>Semana 1:${semanaA}kg<br>Semana 2:${semanaB}kg <br> Semana 3:${semanaC}kg <br> Semana 4 (Descanso): ${semanaD} `
+    }else if (progre === 'Moderado') {
+      let kilos = document.getElementById('kilos').value;
+      console.log(kilos)
+      const resultado4 = document.querySelector('#resultado4');
+      let semanaA = kilos;
+      let semanaB = Math.round(semanaA * 1.10);
+      let semanaC = Math.round(semanaB * 1.10);
+      let semanaD = Math.round(semanaB / 1.15);
+      resultado4.innerHTML = `<br>Semana 1:${semanaA}kg<br>Semana 2:${semanaB}kg <br> Semana 3:${semanaC}kg <br> Semana 4 (Descanso): ${semanaD} `
+    } else if (progre === 'Fuerte') {
+      let kilos = document.getElementById('kilos').value;
+      console.log(kilos)
+      const resultado4 = document.querySelector('#resultado4');
+      let semanaA = kilos;
+      let semanaB = Math.round(semanaA * 1.15);
+      let semanaC = Math.round(semanaB * 1.15);
+      let semanaD = Math.round(semanaB / 1.15);
+      resultado4.innerHTML = `<br>Semana 1:${semanaA}kg<br>Semana 2:${semanaB}kg <br> Semana 3:${semanaC}kg <br> Semana 4 (Descanso): ${semanaD} `
+    }
 
+
+  }
+
+  let borrar4 = document.getElementById("borrar4");
+  borrar4.onclick =() => {
+    const resultado4 = document.querySelector('#resultado4');
+      resultado4.innerHTML = "";
+      Swal.fire({
+        icon: 'success',
+        title: 'Se ha eliminado satisfactoriamente',
+        showConfirmButton: false,
+        });
+  }
